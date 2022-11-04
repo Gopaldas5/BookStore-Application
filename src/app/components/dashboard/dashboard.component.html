@@ -1,0 +1,221 @@
+<!-- <app-header></app-header> -->
+<app-header [numberOfCart]="cartBookCount" (serachTextChanged)="onSearchTextEntered($event)"></app-header>
+<div class="super-main-content">
+    <div class="book-title">
+        <div class="header-content">
+            <div class="book-details-text"> Books</div>
+            <div class="book-count">(128 items)</div>
+
+            <div class="book-sort">
+                <div>
+                    <select #sortOption class="dropdown-sort" name="sort" id="" (input)="sortBooks(sortOption.value)">
+                        <option value="relevance">Sort by relevance</option>
+                        <option value="LowToHigh">Price: Low to High</option>
+                        <option value="HighToLow">Price: High to Low</option>
+                        <option value="rating">By Rating</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <!-- <div> -->
+        <mat-card class="mat-card" *ngFor="let book of bookList">
+            <div *ngIf="searchText==='' || book.bookName.toLowerCase().includes(searchText.toLowerCase())">
+                <mat-card-title class="book-img">
+                    <img class="image" src={{book.bookImg}} alt="">
+                    <!-- <img class="image"   src="../../../assets/books-img/Image 11.png" alt=""> -->
+                </mat-card-title>
+                <mat-card-content>
+                    <div class="book-name">{{book.bookName}}</div>
+                    <div class="auother-name">{{book.authorName}}</div>
+                    <div class="price">Rs.{{book.price}}</div>
+
+                    <div class="card-buttons">
+                        <div class="add-bag" *ngIf="cartBookList.includes(book.bookId)==false">
+                            <button mat-flat-button class="addBag-button" color="primary"
+                                (click)="addBookToCart(book.bookId)">ADD TO BAG</button>
+                        <!-- </div>
+                        <div class="add-bag" *ngIf="cartBookList.includes(book.bookId)==false" >
+                            <button mat-flat-button class="wishlist-button" color="primary"  >WISHLIST</button> -->
+
+                             <button  class="wishlist-button" mat-stroked-button (click)="addBookToWishlist(book.bookId)"
+                                *ngIf="wishlistBooks.includes(book.bookId) == false">WISHLIST</button>
+
+                             <button  class="wishlist-button" mat-stroked-button 
+                             *ngIf="wishlistBooks.includes(book.bookId)==true"  >WISHLIST</button> 
+                        </div>
+                        <div class="add-bag" *ngIf="cartBookList.includes(book.bookId)==true">
+                            <button mat-stroked-button class="added-bag-button" color="primary">ADDED TO BAG</button>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </div>
+        </mat-card>
+
+
+        <!-- <mat-card class="mat-card">
+            <mat-card-title class="book-img">
+                <img class="image" src="../../../assets/books-img/Image 8.png" alt="">
+            </mat-card-title>
+            <mat-card-content>
+                <div class="book-name">Book name</div>
+                <div class="auother-name"> author name</div>
+
+                <div class="price"> 500</div>
+
+
+                <div class="card-buttons">
+                    <div class="add-bag">
+                        <button mat-flat-button class="addBag-button" color="primary">ADD TO BAG</button>
+                    </div>
+                    <div class="add-bag">
+                        <button mat-flat-button class="wishlist-button" color="primary">WISHLIST</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+
+        <mat-card class="mat-card">
+            <mat-card-title class="book-img">
+                <img class="image" src="../../../assets/books-img/Image 11.png" alt="">
+            </mat-card-title>
+            <mat-card-content>
+                <div class="book-name">Book name</div>
+                <div class="auother-name"> author name</div>
+
+                <div class="price"> 500</div>
+
+
+                <div class="card-buttons">
+                    <div class="add-bag">
+                        <button mat-flat-button class="addBag-button" color="primary">ADD TO BAG</button>
+                    </div>
+                    <div class="add-bag">
+                        <button mat-flat-button class="wishlist-button" color="primary">WISHLIST</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+
+        <mat-card class="mat-card">
+            <mat-card-title class="book-img">
+                <img class="image" src="../../../assets/books-img/Image 18.png" alt="">
+            </mat-card-title>
+            <mat-card-content>
+                <div class="book-name">Book name</div>
+                <div class="auother-name"> author name</div>
+
+                <div class="price"> 500</div>
+
+
+                <div class="card-buttons">
+                    <div class="add-bag">
+                        <button mat-flat-button class="addBag-button" color="primary">ADD TO BAG</button>
+                    </div>
+                    <div class="add-bag">
+                        <button mat-flat-button class="wishlist-button" color="primary">WISHLIST</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="mat-card">
+            <mat-card-title class="book-img">
+                <img class="image" src="../../../assets/books-img/Image 13.png" alt="">
+            </mat-card-title>
+            <mat-card-content>
+                <div class="book-name">Book name</div>
+                <div class="auother-name"> author name</div>
+
+                <div class="price"> 500</div>
+
+
+                <div class="card-buttons">
+                    <div class="add-bag">
+                        <button mat-flat-button class="addBag-button" color="primary">ADD TO BAG</button>
+                    </div>
+                    <div class="add-bag">
+                        <button mat-flat-button class="wishlist-button" color="primary">WISHLIST</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="mat-card">
+            <mat-card-title class="book-img">
+                <img class="image" src="../../../assets/books-img/Image 14.png" alt="">
+            </mat-card-title>
+            <mat-card-content>
+                <div class="book-name">Book name</div>
+                <div class="auother-name"> author name</div>
+
+                <div class="price"> 500</div>
+
+
+                <div class="card-buttons">
+                    <div class="add-bag">
+                        <button mat-flat-button class="addBag-button" color="primary">ADD TO BAG</button>
+                    </div>
+                    <div class="add-bag">
+                        <button mat-flat-button class="wishlist-button" color="primary">WISHLIST</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="mat-card">
+            <mat-card-title class="book-img">
+                <img class="image" src="../../../assets/books-img/Image 12.png" alt="">
+            </mat-card-title>
+            <mat-card-content>
+                <div class="book-name">Book name</div>
+                <div class="auother-name"> author name</div>
+
+                <div class="price"> 500</div>
+
+
+                <div class="card-buttons">
+                    <div class="add-bag">
+                        <button mat-flat-button class="addBag-button" color="primary">ADD TO BAG</button>
+                    </div>
+                    <div class="add-bag">
+                        <button mat-flat-button class="wishlist-button" color="primary">WISHLIST</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="mat-card">
+            <mat-card-title class="book-img">
+                <img class="image" src="../../../assets/books-img/Image 8.png" alt="">
+            </mat-card-title>
+            <mat-card-content>
+                <div class="book-name ">Book name</div>
+                <div class="auother-name "> author name</div>
+                <div class="price "> 500</div>
+
+
+                <div class="card-buttons">
+                    <div class="add-bag ">
+                        <button mat-flat-button class="addBag-button" color="primary" routerLink="/cart">ADD TO BAG</button>
+                    </div>
+                    <div class="add-bag ">
+                        <button mat-flat-button class="wishlist-button" color="primary">WISHLIST</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+ -->
+
+    </div>
+
+</div>
+
+<app-bookfooter></app-bookfooter>

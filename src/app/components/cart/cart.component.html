@@ -1,0 +1,143 @@
+<!-- <app-header></app-header> -->
+<app-header [numberOfCart]="cart_book.length"></app-header>
+<div class="super-div">
+  <div class="main-cart-details">
+
+    <div class="cart-text">
+      <span>My Cart (2)</span>
+    </div>
+    <div class="book-details" *ngFor="let booksDetail of cart_book, let i =index">
+      <!-- <img src="../../../assets/books-img/Image 11.png" alt="Not found" /> -->
+      <img [src]="booksDetail.bookImg" alt="" />
+
+
+      <div class="cart-details">
+
+        <div class="book-name">{{booksDetail.bookName}}</div>
+        <div class="author-name">by {{booksDetail.authorName}}</div>
+        <div class="price" >Rs. {{booksDetail.price*bookQuantityList[i]}}</div>
+
+        <div class="book-quantity">
+          <button class="minus-btn" (click)="decreaseBookQuantity(booksDetail.bookId)">-</button>
+          <input class="numberofbook" type="text" value="1" [(ngModel)]="bookQuantityList[i]" />
+          <button class="plus-btn" (click)="increaseBookQuantity(booksDetail.bookId)">+</button>
+          <button class="remove-button" (click)="removeBookFromCart(booksDetail.bookId)">Remove</button>
+        </div>
+      </div>
+
+    </div>
+    <button mat-button matStepperNext class="order-placed-button" (click)="placedButton()">PLACE ORDER</button>
+  </div>
+
+  <div class="customer-details-main-div" *ngIf="placedClick==false">
+    <span class="customer-text-title">Customer details</span>
+  </div>
+
+  <div class="customer-details-main-div" *ngIf="placedClick==true">
+    <span class="customer-text-title">Customer details</span>
+    <div class="customer-details">
+
+      <div class="customer-name">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input matInput [(ngModel)]="ordersDetail.phoneNumber">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Pin code</mat-label>
+                <input matInput [(ngModel)]="ordersDetail.pincode">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Locality</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Address</mat-label>
+          <textarea matInput placeholder="Ex. 100 Main St" [(ngModel)]="ordersDetail.address"></textarea>
+        </mat-form-field>
+
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>city/town</mat-label>
+                <input matInput [(ngModel)]="ordersDetail.city">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Landmark</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+
+      </div>
+      <div class="type">
+        <span>Type</span>
+        <div>
+          <mat-radio-group class="radio-buttons">
+            <mat-radio-button class="home-button" value="home">Home</mat-radio-button>
+            <mat-radio-button class="home-button" value="work">Work</mat-radio-button>
+            <mat-radio-button class="home-button" value="other">Other</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="continue-div">
+          <button mat-button matStepperNext class="continue-button" (click)="continueButton()"> CONTINUE </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="order-summery-div" *ngIf="continueclick==false">
+    <span class="order-summery">Order Summery</span>
+  </div>
+  <div class="order-summery-div" *ngIf="continueclick==true">
+    <span class="order-summery">Order Summery</span>
+
+    <div class="book-details" *ngFor="let booksDetail of cart_book, let i =index">
+      <!-- <img src="../../../assets/books-img/Image 11.png" alt="" /> -->
+      <img [src]="booksDetail.bookImg" alt="" />
+
+      <div class="cart-details">
+        <div class="book-name">{{booksDetail.bookName}}</div>
+        <div class="author-name">by {{booksDetail.authorName}}</div>
+        <div class="price">Rs.{{booksDetail.price*bookQuantityList[i]}}</div>
+        <!-- <div>Total Price </div> -->
+      </div>
+    </div>
+
+    <button mat-button matStepperNext class="order-placed-button" (click)="orderPlaceDetail()">CHECKOUT</button>
+  </div>
+
+  <div>
+
+  </div>
+</div>
+
+<app-bookfooter></app-bookfooter>

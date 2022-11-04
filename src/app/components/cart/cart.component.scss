@@ -1,0 +1,254 @@
+.super-div{
+  padding-top: 5%;
+  padding-bottom: 7%;
+}
+
+.main-cart-details {
+  margin: 6% 33% 2% 14%;
+  height: fit-content;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 2px solid #dcdcdc;
+ 
+
+  .cart-text {
+    margin: 1% 0% 0% 5%;
+    font-size: 16px;
+    font: normal normal medium 18px/22px Lato;
+  }
+
+  .book-details {
+    display: flex;
+    margin: 2% 50% 0% 5%;
+
+    img {
+      height: 110px;
+      width: 100px;
+      margin: 1% 0% 0% 0%;
+    }
+
+    .cart-details {
+      background-color: white;
+      width: 80%;
+
+      .book-name {
+        margin: 3% 0% 0% 7%;
+        font: normal normal normal Roboto;
+        color: black;
+      }
+
+      .author-name {
+        margin: 3% 0% 0% 7%;
+        font: normal normal normal 10px/12px Roboto;
+        color: grey;
+      }
+
+      .price {
+        color: black;
+        margin: 3% 0% 0% 7%;
+        font: normal normal normal Roboto;
+      }
+    }
+  }
+
+  .book-quantity {
+    margin: 5% 55% 0% 0%;
+    padding-left: 0%;
+    display: flex;
+    height: 30px;
+
+    .minus-btn {
+      background-color: white;
+      margin: 1% 1% 0% 18%;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #fafafa 0% 0% no-repeat padding-box;
+      border: 1px solid #dbdbdb;
+    }
+
+    .numberofbook {
+      height: 18px;
+      width: 40px;
+      text-align: center;
+      margin: 1% 0% 0% 0%;
+      border-radius: 3px;
+      // border: #dbdbdb;
+      background: #fafafa 0% 0% no-repeat padding-box;
+      border: 1px solid #dbdbdb;
+    }
+
+    .plus-btn {
+      background-color: white;
+      margin: 1% 0% 0% 1%; //
+      height: 20px;
+      width: 20px;
+      // border: #dbdbdb;
+      border-radius: 70%;
+      background: #fafafa 0% 0% no-repeat padding-box;
+      border: 1px solid #dbdbdb;
+    }
+
+    .remove-button {
+      height: 20px;
+      width: 70px;
+      margin: 1% 0% 0% 7%;
+      border-style: dashed;
+      border: none;
+      border-radius: 10px;
+      background: white 0% 0% no-repeat padding-box;
+      border: 1px solid white;
+    }
+  }
+
+  .order-placed-button {
+    width: 16%;
+    color: white;
+    margin: 0% 0% 4% 77%;
+    border: 1px solid #707070;
+    font: normal normal medium 14px/17px Lato;
+    background: #3371b5 0% 0% no-repeat padding-box;
+    height: 38px;
+  }
+}
+
+.customer-details-main-div {
+  margin: 3% 33% 2% 14%;
+  // height: 500px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 2px solid #dcdcdc;
+
+  .customer-text-title {
+    font: normal normal normal 15px/18px Lato;
+    color: #333232;
+    margin: 2% 0% 2% 4%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 22px;
+    font-weight: bold;
+  }
+
+  .customer-details {
+    // border-style: dotted;
+    width: 700px;
+    height: 460px;
+
+    .customer-name {
+      // border-style: dotted;
+      width: 500px;
+      margin: 2% 0% 0% 6%;
+
+      .example-full-width {
+        width: 100%;
+        justify-content: left;
+      }
+
+      td {
+        padding-right: 4px;
+      }
+
+    }
+
+    .continue-button {
+      
+      width: 18%;
+      color: white;
+      margin: 0% 0% 4% 90%;
+      border: 1px solid #707070;
+      font: normal normal medium 14px/17px Lato;
+      background: #3371b5 0% 0% no-repeat padding-box;
+      height: 38px;
+    }
+
+    .type {
+      margin: 1% 0% 0% 6%;
+
+    }
+
+
+  }
+
+  .radio-buttons {
+
+    margin: 3% 1% 0% 0%;
+
+    .home-button {
+      padding-left: 10%;
+    }
+  }
+
+}
+
+.order-summery-div {
+  margin: 3% 33% 2% 14%;
+  // height: 225px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 2px solid #dcdcdc;
+
+  .order-summery {
+    font: normal normal normal 15px/18px Lato;
+    color: #333232;
+    margin: 2% 0% 2% 4%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 22px;
+    font-weight: bold;
+  }
+
+  span {
+    font: normal normal normal 15px/18px Lato;
+    color: #333232;
+    margin: 2% 0% 0% 2%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 22px;
+    font-weight: bold;
+  }
+
+  .book-details {
+    display: flex;
+    margin: 2% 50% 0% 5%;
+
+    img {
+      height: 110px;
+      width: 100px;
+      margin: 1% 0% 0% 0%;
+    }
+
+    .cart-details {
+      background-color: white;
+      width: 80%;
+      margin: 4% 0% 0% 5%;
+
+      .book-name {
+        margin: 3% 0% 0% 0%;
+        font: normal normal normal Roboto;
+        color: black;
+      }
+
+      .author-name {
+        margin: 3% 0% 0% 0%;
+        font: normal normal normal 10px/12px Roboto;
+        color: grey;
+      }
+
+      .price {
+        margin: 0% 0% 0% 0%;
+        padding-bottom: 10px;
+        font: normal normal bold 15px/18px Lato;
+        letter-spacing: 0px;
+        color: #0A0102;
+        opacity: 1;
+      }
+    }
+  }
+
+  .order-placed-button {
+    width: 16%;
+    color: white;
+    margin: 0% 0% 4% 77%;
+    border: 1px solid #707070;
+    font: normal normal medium 14px/17px Lato;
+    background: #3371b5 0% 0% no-repeat padding-box;
+    height: 38px;
+  }
+}

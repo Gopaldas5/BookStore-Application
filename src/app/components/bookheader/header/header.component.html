@@ -1,0 +1,103 @@
+<!-- <mat-card class="header">
+    <div class="header-content">
+        <div class="logo-content" >
+            <div><img src="../../../../assets/header-img/education.svg" alt="logo" routerLink="/dashboard"></div>
+            <div class="logo-text" routerLink="/dashboard">BookStore</div>
+        </div>
+        <div class="search-bar">
+
+            <form class="nosubmit">
+                <input class="nosubmit" type="search" placeholder="Search...">
+            </form>
+
+        </div>
+        <div class="tabs">
+            <div class="profile-tab" >
+                  <div>
+                    <img class="profile-logo" src="../../../../assets/header-img/person.jpg" alt="" routerLink="/register">
+                </div>
+                <div routerLink="/register">Profile</div>
+
+                
+            </div>
+            <div class="cart-tab" >
+                <div matBadgeSize="small" matBadgeColor="primary" >
+                    <img  src="../../../../assets/header-img/supermarket.svg" alt="cart-tab" routerLink="/cart">
+                </div>
+                <span routerLink="/cart">Cart</span>
+            </div>
+        </div>
+    </div>
+</mat-card>
+
+<router-outlet></router-outlet> -->
+
+
+<mat-card class="header">
+    <div class="header-content">
+        <div class="logo-content">
+            <div><img src="../../../../assets/header-img/education.svg" alt="logo" (click)="dashboard()"></div>
+            <div class="logo-text" (click)="dashboard()">BookStore</div>
+        </div>
+        <div class="search-bar">
+
+            <div class="search-icon">
+                <mat-icon>search</mat-icon>
+            </div>
+            <input class="search-input" type="search" placeholder="Search..." [(ngModel)]="enteredSearchValue" (input)="onsearchTextChanged()">
+        </div>
+        <div class="main-tabs">
+            <div *ngIf="openProfile == true">
+                <div class="profile-open" *ngIf="this.token == null">
+                    <label class="wellcome">Welcome</label>
+                    <div class="text">To acsess account and manage order</div>
+                    <div>
+                        <button class="button" (click)="register()">LOGIN/SIGNUP</button>
+                    </div>
+                    <div class="icon-div">
+                        <mat-icon>shop</mat-icon><span> My Orders</span>
+                    </div> 
+                    <div class="icon-div wishlist" (click)=" openWishlist()" >
+                        <span class="icon">&#9825;</span>
+                        <span>Wishlist</span>
+                    </div>
+                </div>
+                <div class="profile-open" *ngIf="this.token != null">
+                    <label for="" class="wellcome">Hello {{userName.fullName}} </label>
+                    <div class="icon-div">
+                       <mat-icon class="mat-icon">person</mat-icon> Profile
+                    </div>
+                    <div class="icon-div">
+                        <mat-icon class="mat-icon">shop</mat-icon><span> My Orders</span>
+                    </div>
+                    <div class="icon-div wishlist" (click)=" openWishlist()">
+                        <mat-icon>favorite_border</mat-icon> <span>Wishlist</span>
+                    </div>
+                    <button class="button" (click)="logout()" >LOGOUT</button>
+                </div>
+
+            </div>
+            <div class="profile-tab" (click)="profile()">
+                <div>
+                    <img class="profile-logo" src="../../../../assets/header-img/person.jpg" alt="">
+                </div>
+                <div>
+                    <div>Profile</div> 
+                    <!-- <div>name</div> --> 
+                    <div *ngIf="token == null">Profile</div>
+                    <div *ngIf="token != null">{{userName.fullName}}</div>
+                </div>
+            </div>
+            <div class="cart-tab" (click)="cart()">
+                <div matBadge={{numberOfCart}} matBadgeSize="small" matBadgeColor="primary">
+                    <!-- <div matBadge="1" matBadgeSize="large" class="demo-section">Text with large badge</div> -->
+
+                    <img src="../../../../assets/header-img/supermarket.svg" alt="cart-tab">
+                </div>
+                <span>Cart</span>
+            </div>
+        </div>
+    </div>
+
+
+</mat-card>
