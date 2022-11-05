@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<div class="login-page">
+    <div class="login-logo">
+      <img src="../../../assets/login-img/2766594.png" alt="login Logo">
+      <div class="text-img">Online Book Shopping</div>
+    </div>
+    <mat-card class="mat-login-signup">
+        <mat-tab-group class="example-stretched-tabs" mat-align-tabs="center">
+            <mat-tab label="LOGIN">
+                <mat-card-content>
+                    <form action="" >
+                        <label for="name" class="text-class">Email</label>
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="Email"   required name="email" id="email" [(ngModel)]="userLoginData.email">
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                        <label for="name" class="text-class">Password</label>
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="Password" type="password" required minlength="6"
+                              name="password" id="password" [(ngModel)]="userLoginData.password">
+                            <mat-icon matSuffix>visibility</mat-icon>
+                        </mat-form-field>
+
+                        <button mat-raised-button color="primary" class="login-button" (click)="loginUser()">
+                            <p>LOGIN</p>
+                        </button>
+                        <div class="or-div"> OR </div>
+                        <div class="button-container">
+                            <button mat-raised-button class="facebook-button">
+                                <p> Facebook</p>
+                            </button>
+                            <button mat-raised-button class="google-button">
+                                <p> Google</p>
+                            </button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-tab>
+            <mat-tab label="SIGNUP">
+                <mat-card-content>
+                    <form action="" >
+                        <label for="name" class="text-class">Full Name</label>
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="Full Name" required name="fullname" [(ngModel)]="userData.fullName">
+                            <mat-icon matSuffix>perm_identity</mat-icon>
+                           
+                        </mat-form-field>
+                        <label for="name" class="text-class">Email Id</label>
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="Email Id" required name="email" [(ngModel)]="userData.email">
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                        <label for="name" class="text-class">Password</label>
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="Password" type="password" required minlength="6"
+                                name="password" [(ngModel)]="userData.password">
+                            <mat-icon matSuffix>visibility</mat-icon>
+
+                        </mat-form-field>
+                        <label for="name" class="text-class">Phone Number</label>
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="PhoneNumber" type="PhoneNumber" required minlength="10"
+                                name="phoneNumber" [(ngModel)]="userData.phoneNumber">
+                            <mat-icon matSuffix>phone</mat-icon>
+                        </mat-form-field>
+                        <button mat-raised-button color="primary" class="signup-button" (click)="userSignUp()">
+                            <p>Sign Up</p>
+                        </button>
+                    </form>
+                </mat-card-content>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+   
+</div>
+
+<app-bookfooter></app-bookfooter>
